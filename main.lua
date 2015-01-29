@@ -12,7 +12,7 @@ function __G__TRACKBACK__(msg)
 end
 
 require("init")
-
+ 
 local function main()
     -- avoid memory leak
     collectgarbage("setpause", 100)

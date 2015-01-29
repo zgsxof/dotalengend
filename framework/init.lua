@@ -29,7 +29,6 @@ uber.PACKAGE_NAME = string.sub(CURRENT_MODULE_NAME, 1, -6)
 local p = uber.PACKAGE_NAME
 local config = 
 {
-	deprecated = false,	-- 支持过时模块 (默认关闭)
 	opengl  = true,		-- Opengl模块
 	network = true,		-- 网络模块
 	display = true,		-- 图像加强模块
@@ -39,10 +38,6 @@ local config =
 	iap = true,			-- 内付费模块
 }
 require(p..".helper.extern")
-if frameworkConfig ~= nil then
-	uber.config = clone(frameworkConfig)
-	config = uber.config
-end
 
 -- 必然支持的模块
 import(".helper.shortcuts")
@@ -53,14 +48,6 @@ import(".ccs.CocoStudio")
 import(".opengl.OpenglConstants")
 
 --display = require(p .. ".display")
-
-if config.deprecated then
-	import(".deprecated.DeprecatedEnum")
-	import(".deprecated.DeprecatedOpenglEnum")
-	import(".deprecated.DeprecatedClass")
-	import(".deprecated.Deprecated")
-
-end
 
 if config.network then
 	import(".network.network")
